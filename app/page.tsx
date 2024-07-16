@@ -1,4 +1,14 @@
-/** Add your relevant code here for the issue to reproduce */
+import { cookies } from "next/headers";
+
 export default function Home() {
-  return null;
+  return (
+    <form
+      action={async () => {
+        "use server";
+        console.log(cookies().get("random_string"));
+      }}
+    >
+      <button type="submit">action</button>
+    </form>
+  );
 }
